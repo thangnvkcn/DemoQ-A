@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Đề tài: "Hệ thống hỏi đáp trong lĩnh vực giáo dục"</h1>
+    <h3>A web implementation of <a href="chatbot-education.herokuapp.com">ChatterBot</a> using Flask</h3>
+    <div>
+      <div id="chatbox">
+        <p class="botText"><span>Hi! I'm Chatterbot.</span></p>
+      </div>
+      <div id="userInput">
+        <input id="textInput" type="text" name="msg" placeholder="Message">
+        <input id="buttonInput" type="submit" value="Send">
+      </div>
+      <script>
+        function getBotResponse() {
+          var req = new XMLHttpRequest();
+          req.open("POST", "/process", false);
+          var rawText = $("#textInput").val();
+          var dict = {text: rawText};
+          req.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+          req.send(JSON.stringify(dict));
+          var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          var resp = JSON.parse(req.response).text_tagged;
+<!--          $.get("/process", { msg: rawText }).done(function(data) {-->
+          var botHtml = '<p class="botText"><span>' + resp.answer + '</span></p>';
+          $("#chatbox").append(botHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+<!--          });-->
+        }
+        $("#textInput").keypress(function(e) {
+            if ((e.which == 13) && document.getElementById("textInput").value != "" ){
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+            if (document.getElementById("textInput").value != "") {
+                getBotResponse();
+            }
+        })
+
+        var view1 = document.getElementById("text_view1");
+        function vote_hl() {
+                var text = document.getElementById("textInput").value;
+<!--                var model = document.getElementById("select_").value;-->
+                var dict = {text: text};
+                var req = new XMLHttpRequest();
+<!--                alert("Well done!");-->
+                req.open("POST", "/process", false);
+
+                req.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+                req.send(JSON.stringify(dict));
+
+                var resp = JSON.parse(req.response).text_tagged;
+
+                view1.innerHTML += ("bot: "+ resp.answer);
+
+                view1.innerHTML += '\r\n';
+<!--                 alert("Well done!");-->
+                return false;
+            }
+      </script>
+    </div>
+  </body>
+</html>
