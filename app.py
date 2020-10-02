@@ -40,7 +40,8 @@ mydb = pymysql.connect(
 
 @app.route('/')
 def a():
-    return render_template("a.html")
+    # return render_template("a.html")
+    return render_template("session.html")
 
 
 # @app.route('/process', methods=['GET','POST'])

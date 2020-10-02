@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Flask_Chat_App</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 100vh}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }
+  </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body>
+  <div class="container-fluid">
+      <div class="row content">
+        <div class="col-sm-3 sidenav">
+          <h1>Education Chatbot</h1>
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#section1">Home</a></li>
+            <li><a href="#section2">About</a></li>
+          </ul>
+            <br>
+            <br>
+            <br>
+{#          <div class="input-group">#}
+{#            <input type="text" class="form-control" placeholder="Search Blog..">#}
+{#            <span class="input-group-btn">#}
+{#              <button class="btn btn-default" type="button">#}
+{#                <span class="glyphicon glyphicon-search"></span>#}
+{#              </button>#}
+{#            </span>#}
+{#          </div>#}
+            <div>
+                <label>Lựa chọn mô hình</label>
+                <select id="select_" class="form-control" name="model_option">
+                  <option class="option_" value="cnn">CNN</option>
+                  <option class="option_" value="lstm">LSTM</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-sm-9">
+
+            <section class="msger">
+              <header class="msger-header">
+                <div class="msger-header-title">
+                  <i class="fas fa-comment-alt"></i> Chatbot
+                </div>
+                <div class="msger-header-options">
+                  <span><i class="fas fa-cog"></i></span>
+                </div>
+              </header>
+
+              <main class="msger-chat">
+                <div class="msg left-msg">
+                  <div
+                   class="msg-img"
+                   style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+                  ></div>
+
+                  <div class="msg-bubble">
+                    <div class="msg-info">
+                      <div class="msg-info-name">BOT</div>
+                      <div class="msg-info-time">12:45</div>
+                    </div>
+
+                    <div class="msg-text">
+                      Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
+                    </div>
+                  </div>
+                </div>
+
+                <div class="msg right-msg">
+                  <div
+                   class="msg-img"
+                   style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+                  ></div>
+
+                  <div class="msg-bubble">
+                    <div class="msg-info">
+                      <div class="msg-info-name">GUEST</div>
+                      <div class="msg-info-time">12:46</div>
+                    </div>
+
+                    <div class="msg-text">
+                      You can change your name in JS section!
+                    </div>
+                  </div>
+                </div>
+              </main>
+
+              <form class="msger-inputarea">
+                <input type="text" class="msger-input" placeholder="Enter your message...">
+                <button type="submit" class="msger-send-btn">Send</button>
+              </form>
+            </section>
+
+        </div>
+      </div>
+    </div>
+
+
+    <script src="../static/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+  </body>
+  </html>
