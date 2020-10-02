@@ -51,31 +51,25 @@ function appendMessage(name, img, side, text) {
 
 function botResponse(text) {
   // const r = random(0, BOT_MSGS.length - 1);
+
+  var req = new XMLHttpRequest();
+  req.open("POST", "/process", false);
+  var rawText = text;
+  var dict = {text: rawText};
+  console.log(dict);
+  req.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+  req.send(JSON.stringify(dict));
+  var resp = JSON.parse(req.response).text_tagged;
   console.log(text);
 
   const delay = 400;
   var model = document.getElementById("select_").value;
-  var dict = {text: text,model:model};
-  var req = new XMLHttpRequest();
   console.log(model);
-  req.open("POST", "/process", false);
-
-  req.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-
-  req.send(JSON.stringify(dict));
-
-  var resp = JSON.parse(req.response).text_tagged;
-
-  var st2 = resp.text;
-  var results_17 = "Chủ đề (Nhãn-Label) dự đoán cho tập nhãn thô: "+resp.results_17+"<br>"+"Chủ đề (Nhãn-Label) dự đoán cho tập nhãn mịn: "+resp.results_45+"<br>"+"Answer: "+resp.answer+"<br>"+st2;
-  var results_45 = "Chủ đề (Nhãn-Label) dự đoán cho tập nhãn mịn: "+resp.results_45;
 
   const msgText = resp.answer !== "" ? resp.answer : "Đây là message của bot.";
   console.log(msgText);
   console.log(delay);
-  setTimeout(() => {
-    appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
-  }, delay);
+  appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
 }
 
 // Utils
