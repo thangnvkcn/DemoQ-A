@@ -13,6 +13,20 @@ html {
 html, body {
   margin:0px;
   height:100%;
+  font-size: 20px !important;
+}
+
+h1 {
+    color: black;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+}
+
+h3 {
+    color: black;
+    margin-top: 3px;
+    text-align: center;
 }
 
 /**,*/
@@ -38,6 +52,7 @@ html, body {
     justify-content: space-between;
     height: 100%;
     background: var(--msger-bg);
+    font-size: 20px;
 }
 
 .msger-header {
@@ -86,6 +101,7 @@ html, body {
   padding: 15px;
   border-radius: 15px;
   background: var(--left-msg-bg);
+  font-size: 20px;
 }
 .msg-info {
   display: flex;
@@ -124,10 +140,11 @@ html, body {
   background: #eee;
 }
 .msger-inputarea * {
+  height: 40px;
   padding: 10px;
   border: none;
   border-radius: 3px;
-  font-size: 1em;
+  font-size: 20px;
 }
 .msger-input {
   flex: 1;
@@ -149,3 +166,9 @@ html, body {
   background-color: #fcfcfe;
 }
 
+.col-sm-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+    max-height: 100%;
+}
