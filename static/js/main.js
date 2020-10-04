@@ -1,6 +1,7 @@
 const msgerForm = get(".msger-inputarea");
 const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
+const debug = get(".debug");
 
 // const BOT_MSGS = [
 //   "Hi, how are you?",
@@ -49,7 +50,37 @@ function appendMessage(name, img, side, text) {
   msgerChat.scrollTop += 500;
 }
 
+function appendDebug(msg ="", intent ="", ner="", model="", response="") {
+  //   Simple solution for small apps
+  const msgHTML = `
+    <div class="card bg-light mb-3" style="max-width: 100%;">
+        <div class="card-header">Thông tin</div>
+        <div class="card-body">
+          <p class="card-text">
+              <strong>Message: </strong>${msg}
+          </p>
+          <p class="card-text">
+              <strong>Model: </strong>${model}
+          </p>
+          <p class="card-text">
+              <strong>Intent: </strong>${intent}
+          </p>
+          <p class="card-text">
+              <strong>NER: </strong>${ner}
+          </p>
+          <p class="card-text">
+              <strong>Response: </strong>${response}
+          </p>
+        </div>
+    </div>
+  `;
+
+  debug.insertAdjacentHTML("beforeend", msgHTML);
+  msgerChat.scrollTop += 500;
+}
+
 function botResponse(text) {
+
   // const r = random(0, BOT_MSGS.length - 1);
 
   var req = new XMLHttpRequest();
@@ -62,9 +93,12 @@ function botResponse(text) {
   var resp = JSON.parse(req.response).text_tagged;
   console.log(text);
 
-  const delay = 400;
+
   var model = document.getElementById("select_").value;
   console.log(model);
+
+  const intent = resp.result_17 + " " + resp.result_45;
+  appendDebug(text, intent, resp.result_NER, model, resp);
 
   const msgText = resp.answer !== "" ? resp.answer : "Đây là message của bot.";
   console.log(msgText);
