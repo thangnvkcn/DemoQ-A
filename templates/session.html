@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Hệ thống hỏi đáp trong giáo dục</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 100vh}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }
+  </style>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body>
+  <div class="container-fluid">
+      <div class="row content">
+        <div class="col-sm-3 sidenav">
+          <h3>Education Chatbot</h3>
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#section1">Trang chủ</a></li>
+            <li><a href="#section2">Thông tin</a></li>
+          </ul>
+{#          <div class="input-group">#}
+{#            <input type="text" class="form-control" placeholder="Search Blog..">#}
+{#            <span class="input-group-btn">#}
+{#              <button class="btn btn-default" type="button">#}
+{#                <span class="glyphicon glyphicon-search"></span>#}
+{#              </button>#}
+{#            </span>#}
+{#          </div>#}
+            <div>
+                <label>Lựa chọn mô hình</label>
+                <select id="select_" class="form-control" name="model_option">
+                  <option class="option_" value="cnn">CNN</option>
+                  <option class="option_" value="lstm">LSTM</option>
+                </select>
+            </div>
+            <div class="card border-primary mb-3 debug" style="max-width: 100%; max-height: 500px; overflow: auto; height: 500px">
+                <div class="card-header">THÔNG TIN DEBUG</div>
+{#              <div class="card bg-light mb-3" style="max-width: 80%;">#}
+{#                  <div class="card-header">Thông tin</div>#}
+{#                  <div class="card-body">#}
+    {#                <strong class="card-title">Light card title</strong>#}
+{#                    <p class="card-text">#}
+{#                        <strong>Message: </strong>mình hỏi#}
+{#                    </p>#}
+{#                    <p class="card-text">#}
+{#                        <strong>Intent: </strong>mình hỏi#}
+{#                    </p>#}
+{#                    <p class="card-text">#}
+{#                        <strong>NER: </strong>mình hỏi#}
+{#                    </p>#}
+{#                    <p class="card-text">#}
+{#                        <strong>Response: </strong>mình hỏi#}
+{#                    </p>#}
+{#                  </div>#}
+{#              </div>#}
+{#              <div class="card bg-light mb-3" style="max-width: 80%; ">#}
+{#                  <div class="card-header">Thông tin</div>#}
+{#                  <div class="card-body">#}
+    {#                <strong class="card-title">Light card title</strong>#}
+{#                    <p class="card-text">#}
+{#                        <strong>Message: </strong>mình hỏi#}
+{#                    </p>#}
+{#                    <p class="card-text">#}
+{#                        <strong>Intent</strong>mình hỏi#}
+{#                    </p>#}
+{#                    <p class="card-text">#}
+{#                        <strong>NER</strong>mình hỏi#}
+{#                    </p>#}
+{#                    <p class="card-text">#}
+{#                        <strong>Response</strong>mình hỏi#}
+{#                    </p>#}
+{#                  </div>#}
+{#              </div>#}
+            </div>
+
+        </div>
+
+        <div class="col-sm-9">
+
+            <section class="msger">
+              <header class="msger-header">
+                <div class="msger-header-title">
+                  <i class="fas fa-comment-alt"></i> THÔNG TIN HỘI THOẠI
+                </div>
+                <div class="msger-header-options">
+                  <span><i class="fas fa-cog"></i></span>
+                </div>
+              </header>
+
+              <main class="msger-chat">
+                <div class="msg left-msg">
+                </div>
+                <div class="msg right-msg">
+                </div>
+              </main>
+
+              <form class="msger-inputarea">
+                <input type="text" class="msger-input" placeholder="Enter your message...">
+                <button type="submit" class="msger-send-btn">Send</button>
+              </form>
+            </section>
+
+        </div>
+      </div>
+    </div>
+
+
+    <script src="../static/js/main.js"></script>
+  </body>
+  </html>
